@@ -64,10 +64,9 @@ dbt test
 
 ## Data Cleaning and Preliminary Analysis
 
-```markdown
 > [!NOTE]
+>
 > Locate the notebook in ``fedex_dwh/notebooks/clean_source.ipynb`` that contains this analysis
-```
 
 ## Inserting the raw data into the local dtabase
 
