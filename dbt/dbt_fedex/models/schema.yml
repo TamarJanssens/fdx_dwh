@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: raw
+    database: master
+    schema: dbo
+    tables:
+      - name: raw_data
+
+# Define separate schemas for layers (optional)
+schemas:
+  - name: fct
+    description: Fact tables
+  - name: stg
+    description: Staging tables, used for intermediary steps
+  - name: mrt
+    description: Mart tables
+  - name: dim
+    description: Dimension tables
+
+models:
+  - name: date
+    description: "Dimension table to represent dates"
+    columns:
+      - name: day_key
+        description: "Full date as day key"
+        tests:
+          - unique
+          - not_null
+      - name: year
+        tests:
+          - not_null
+      - name: month
+        tests:
+          - not_null
+      - name: day
+        tests:
+          - not_null

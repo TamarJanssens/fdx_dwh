@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  azuresqledge:
+    container_name: sql_edge_fedex
+    image: mcr.microsoft.com/azure-sql-edge
+    ports:
+      - "57000:1433"
+    environment:
+      - ACCEPT_EULA=1
+      - MSSQL_SA_PASSWORD=tamar-janssens2024
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    cap_add:
+      - SYS_PTRACE
+
+volumes:
+  sqlserver-data:
