@@ -18,20 +18,23 @@ schemas:
     description: Dimension tables
 
 models:
-  - name: date
-    description: "Dimension table to represent dates"
+  - name: orders
+    description: "The order Dimension"
+    config:
+      materialized: table
     columns:
-      - name: day_key
-        description: "Full date as day key"
+      - name: order_id
         tests:
-          - unique
-          - not_null
-      - name: year
+          - unique:
+              config:
+                severity: error
+  - name: date
+    description: "The Date Dimension"
+    config:
+      materialized: table
+    columns:
+      - name: date_id
         tests:
-          - not_null
-      - name: month
-        tests:
-          - not_null
-      - name: day
-        tests:
-          - not_null
+          - unique:
+              config:
+                severity: error
