@@ -44,7 +44,7 @@ dbt_fedex:
       database: master
       schema: fdx
       user: sa
-      password: tamar!janssens2024
+      password: **************
       threads: 4
       TrustServerCertificate: yes
 ```
@@ -59,7 +59,7 @@ cat ~/.dbt/RENAME_profiles.yml
 Now ensure that dbt is correctly configured
 
 ```markdown
-dbt test
+dbt debug
 ```
 
 ## Data Cleaning and Preliminary Analysis
