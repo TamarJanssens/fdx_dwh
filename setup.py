@@ -8,6 +8,7 @@ setup(
         'pandas>=1.5.0',
         'numpy>=1.23.0',
         'scikit-learn>=1.1.3',
+        'pyarrow>=6.0.1',
 
         # Data visualization
         'matplotlib>=3.7.2',
@@ -24,14 +25,8 @@ setup(
         # Additional database tools
         'dbt-sqlserver>=1.4.2',  # Assuming SQL Server integration
 
-        # Efficient data handling and processing
-        'pyarrow>=6.0.1',
-
-        # Specific ODBC version
-        'pyodbc==5.0.1',
-
-        # Other dependencies tailored to your project (e.g., specific versions)
-        # ...
+        # Specific ODBC version, now commented out as the --no-binary version is installed through the install.sh script
+        # 'pyodbc==5.0.1',
     ],
     packages=find_packages(),
     python_requires='>=3.6',  # Compatibility range (optional)

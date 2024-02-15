@@ -4,13 +4,15 @@ This projects concerns the workout of an Assessment related to an Analytics Engi
 
 ## Installation
 
-#### Activate Virtual Environment
+### Activate Virtual Environment
+
+After cloning this repo, activate the virtual environment
 
 ```bash
 source ./venv/bin/activate 
 ```
 
-#### Install dependencies
+### Install dependencies
 
 ```bash
 # provide execution permissions to the install script
@@ -19,7 +21,9 @@ chmod +x install.sh
 
 ```
 
-#### Launch the Docker containing a local database
+### Launch the Docker containing a local SQL Edge database
+
+SQL Edge is a lightweight SQL Server which is able to be installed on IoT devices
 
 ```bash
 # cd into the main project directory
@@ -28,7 +32,9 @@ chmod +x install.sh
 docker-compose up -d
 ```
 
-#### Setup dbt_profiles.yml in ~/.dbt
+A free Database client that is able to connect to the Dockerized is Azure Data Studio, which can be downloaded from here: [https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall]()
+
+### Setup your dbt_profiles.yml in ~/.dbt
 
 1. Copy the following configuration into profiles.yml
 
@@ -80,7 +86,7 @@ run
 python ./src/upload_data.py
 ```
 
-### Installing Apache SuperSet
+## Installing Apache SuperSet
 
 Installation instructions can be found here:
 https://superset.apache.org/docs/installation/installing-superset-using-docker-compose
@@ -94,11 +100,11 @@ cd superset
 ```
 
 > [!WARNING]
-> There seems to be a recent (2 weeks) issue in the SuperSet build related to the sqlglot package
+> There seems to be a recent (2 weeks old) issue in the SuperSet build related to the sqlglot package
 >
 > A fix to this issue is posted here on Github
 >
-> https://github.com/apache/superset/issues/26997#issuecomment-1933769661
+> [https://github.com/apache/superset/issues/26997#issuecomment-1933769661]()
 
 3. fix the issue
 
@@ -113,4 +119,6 @@ echo "sqlglot==20.8.0" > requirements-local.txt
 docker-compose up -d
 ```
 
-5. login to superset with user:pass as superset:superset)
+> [!WARNING
+
+6. login to superset with user:pass as superset:superset)
