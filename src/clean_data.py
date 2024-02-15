@@ -21,10 +21,13 @@ def to_camel_case(stringparam):
     camel_case_word = ''.join(capitalized_words)
     return camel_case_word
 
-def remove_characters(mystr, schar_string,replace_by=''):
+def remove_characters(mystr, schar_string,replace_by='',not_in=False):
     newstring = mystr
-    for char in schar_string:
-        newstring = newstring.replace(char,replace_by)
+    if not_in == False:
+        for char in schar_string:
+            newstring = newstring.replace(char,replace_by)
+    else:
+        newstring = ''.join([char if char in schar_string else replace_by for char in mystr])
     return newstring
 
 def dataframe_overview(df):
@@ -71,6 +74,7 @@ colNames = dict(zip(sales.columns.tolist(),renames))
 # rename columns in df
 sales = sales.rename(columns = colNames)
 
+sales['shipState'] = sales['shipState'].apply(lambda x: remove_characters(x, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',replace_by='_',not_in=True))
 # compute n_unique values over df to identify categorical data
 df_overview = dataframe_overview(sales).reset_index()
 
