@@ -161,7 +161,6 @@ Based on evaluating constant fields per field, I have identified the following F
 * date
 * status
 * b2b
-* 
 * fulfilment
 * salesChannel
 * shipServiceLevel
