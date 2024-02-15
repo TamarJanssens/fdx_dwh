@@ -65,7 +65,13 @@ cat ~/.dbt/RENAME_profiles.yml
 Now ensure that dbt is correctly configured
 
 ```markdown
-dbt debug
+dbt debug 
+```
+
+Install packages
+
+```bash
+ dbt deps
 ```
 
 ## Data Cleaning and Preliminary Analysis
@@ -126,11 +132,65 @@ docker-compose up -d
 > ```lsof
 > lsof -i :8088 # 5432, 8080
 > ```
-
-> [!ECLAMATION]
 >
-> Since I have other services running two ports that are used for SuperSet (Java Runtime for Jenkins and a Local NAS Server on a VLAN), the default configuration for SuperSet does not apply to my network. This would take time to resolve and hence I consider this out of scope for this Assessment.
+> Or to LISTEN to open ports:
 >
-> Nevertheless, I've shown to be capable of debugging data engineering/installation issues.
+> ```
+> sudo lsof -i -P | grep LISTEN
+> ```
+>
+> 4. a. 	Change the docker-compose file to use unused ports
 
-6. Once installation turns out to be succesful, login to superset with default user:pass as superset:superset)
+5. Once installation turns out to be succesful, login to superset with default user:pass as admin:admin)
+
+## Building op the Kimball DWH
+
+Based on evaluating constant fields per field, I have identified the following Facts and Dimensions
+
+### Orders [FACT]
+
+* orderId
+* date
+* status
+* b2b
+* promotionIds *
+* fulfilment
+* salesChannel
+* shipServiceLevel
+
+### OrderItems [FACT}
+
+* orderId [FK]
+* sku [FK]
+* qty
+* currency
+* amount
+* courierStatus
+* fulfilledBy
+
+> [!NOTE]
+>
+> * I could likely re-construct a promotion table based on a price analysis that defines a base price and evaluates the price markeup/discount within a given time period based on the promotionId and the price paid for the orderItems. This is however beyond the scope of this exercise.
+
+### Date [Dimension]
+
+### SKU [Dimension]
+
+* sku
+* style
+* category
+* size
+* asin
+
+### Location [Dimension]
+
+> [!NOTE]
+>
+> Since locations can have different names, it is relevant to create separate dimensions for Country, State and City. This way synonyms can be stored across the dimensions to enforce uniques with respect to similar locations.
+>
+> Due to time limitations, I am not able to finish these models, but i've dem
+
+* shipCity
+* shipState
+* shipPostalCode
+* shipCountry
