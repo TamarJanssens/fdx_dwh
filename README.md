@@ -61,7 +61,7 @@ dbt_fedex:
 >
 > For the sake of ease I have included the password here as well as in the docker-compose.yml and the src/upload_data.py script. I ackknowledge this is very bad practice and hence I would never do this in real life. I would use a (mounted)) environment variable or cloud parameter store, never upload it to Git and make sure it would not appear in any logs.
 >
-> Same applies to the data which is uploaded to Git. 
+> Same applies to the data which is uploaded to Git.
 
 Or use command line to paste it into a temporary file
 
@@ -161,7 +161,7 @@ Based on evaluating constant fields per field, I have identified the following F
 * date
 * status
 * b2b
-* promotionIds *
+* 
 * fulfilment
 * salesChannel
 * shipServiceLevel
@@ -171,6 +171,7 @@ Based on evaluating constant fields per field, I have identified the following F
 * orderId [FK]
 * sku [FK]
 * qty
+* promotionIds *
 * currency
 * amount
 * courierStatus
