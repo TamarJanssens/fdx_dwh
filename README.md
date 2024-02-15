@@ -2,6 +2,8 @@
 
 This projects concerns the workout of an Assessment related to an Analytics Engineering Role.
 
+Author: Tamar Janssens
+
 ## Installation
 
 ### Activate Virtual Environment
@@ -50,10 +52,16 @@ dbt_fedex:
       database: master
       schema: fdx
       user: sa
-      password: **************
+      password: tamar-janssens2024
       threads: 4
       TrustServerCertificate: yes
 ```
+
+> [!IMPORTANT]
+>
+> For the sake of ease I have included the password here as well as in the docker-compose.yml and the src/upload_data.py script. I ackknowledge this is very bad practice and hence I would never do this in real life. I would use a (mounted)) environment variable or cloud parameter store, never upload it to Git and make sure it would not appear in any logs.
+>
+> Same applies to the data which is uploaded to Git. 
 
 Or use command line to paste it into a temporary file
 
