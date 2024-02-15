@@ -222,3 +222,9 @@ link:
 [https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json]()
 
 ### Orders By Product [MART]
+
+I've added a Mart model that computes the amount of orders by SKU and Year and pivots the results such each year has its own column. The data is filtered for country IN now.
+
+model `` mrt/pivot_orders_by_sku_year_IN``
+
+To assist this model and keep it readable, a view model is created in ``stg/orders_joined.sql``. This model contains joins with all tables, such it can be re-used for other Mart models.
