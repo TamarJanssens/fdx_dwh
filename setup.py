@@ -24,6 +24,7 @@ setup(
 
         # Additional database tools
         'dbt-sqlserver>=1.4.2',  # Assuming SQL Server integration
+        'sqlfluff>=2.3.5',
 
         # Specific ODBC version, now commented out as the --no-binary version is installed through the install.sh script
         # 'pyodbc==5.0.1',

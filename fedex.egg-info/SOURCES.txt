@@ -1,3 +1,4 @@
+LICENSE
 README.md
 setup.py
 fedex.egg-info/PKG-INFO
