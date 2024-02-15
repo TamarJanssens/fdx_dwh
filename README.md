@@ -82,6 +82,14 @@ Install packages
  dbt deps
 ```
 
+## Load Countries from web
+
+```
+cd src
+python load_countries.py
+dbt seed
+```
+
 ## Data Cleaning and Preliminary Analysis
 
 > [!NOTE]
@@ -164,6 +172,9 @@ Based on evaluating constant fields per field, I have identified the following F
 * fulfilment
 * salesChannel
 * shipServiceLevel
+* country_id
+* cityState_id
+* shipPostalCode
 
 ### OrderItems [FACT}
 
@@ -190,15 +201,24 @@ Based on evaluating constant fields per field, I have identified the following F
 * size
 * asin
 
-### Location [Dimension]
+### Location related Dimensions
 
 > [!NOTE]
 >
 > Since locations can have different names, it is relevant to create separate dimensions for Country, State and City. This way synonyms can be stored across the dimensions to enforce uniques with respect to similar locations.
 >
-> Due to time limitations, I am not able to finish these models, but i've dem
+> Due to time limitations, I am not able to finish these models.shipCity
 
-* shipCity
-* shipState
-* shipPostalCode
-* shipCountry
+#### CityState [Dimension]
+
+Since Citynames can occur in multiple states within a country, I choose to create a CityState dimension with unique City and State combinations
+
+#### Country [Dimension]
+
+Country data is obtained from the internet from [datahub.io]() and retrieved with the script in `` src/load_countries.py``
+
+link:
+
+[https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json]()
+
+### Orders By Product [MART]
