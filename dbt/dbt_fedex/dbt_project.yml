@@ -44,3 +44,9 @@ models:
     dim:
       materialized: table
       +schema: dim
+
+
+seeds:
+  dbt_fedex:
+    +schema: seeds
+    countries:
