@@ -119,6 +119,18 @@ echo "sqlglot==20.8.0" > requirements-local.txt
 docker-compose up -d
 ```
 
-> [!WARNING
+> [!NOTE]
+>
+> In case of conflicts, the following command can show other processes running at the default SuperSet ports:
+>
+> ```lsof
+> lsof -i :8088 # 5432, 8080
+> ```
 
-6. login to superset with user:pass as superset:superset)
+> [!ECLAMATION]
+>
+> Since I have other services running two ports that are used for SuperSet (Java Runtime for Jenkins and a Local NAS Server on a VLAN), the default configuration for SuperSet does not apply to my network. This would take time to resolve and hence I consider this out of scope for this Assessment.
+>
+> Nevertheless, I've shown to be capable of debugging data engineering/installation issues.
+
+6. Once installation turns out to be succesful, login to superset with default user:pass as superset:superset)
