@@ -2,7 +2,7 @@
 
 Author: Tamar Janssens
 
-This projects concerns the workout of an Assessment related to an Analytics Engineering Role. 
+This projects concerns the workout of an Assessment related to an Analytics Engineering Role.
 
 The project has proven to be quite some work and challenging at times, but it has been a pleasure to work on. I hope you will enjoy going through my work as much as I did while developing it.
 
@@ -215,7 +215,8 @@ In order to prevent the date dimension from gaps I used/Googled a macro to gener
 >
 > Since locations can have different names, it is relevant to create separate dimensions for Country, State and City. This way synonyms can be stored across the dimensions to enforce uniques with respect to similar locations.
 >
-> Due to time limitations, I am not able to finish these models, but i've dem
+> Due to time limitations, I am not able to finish these models, but i've showed similar skills in other models
+> [UPDATE: DEV branch contains these models
 
 * shipCity
 * shipState
