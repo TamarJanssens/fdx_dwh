@@ -1,8 +1,25 @@
 # Analytics Engineer Assessment 2024
 
+Author: Tamar Janssens
+
 This projects concerns the workout of an Assessment related to an Analytics Engineering Role.
 
-Author: Tamar Janssens
+The project has proven to be quite some work and challenging at times, but it has been a pleasure to work on. I hope you will enjoy going through my work as much as I did while developing it.
+
+> [!NOTE]
+>
+> The DEV branch is AHEAD of main. I have not merged them intentially for the sake of an honest and clear evaluation.
+>
+> Changes concern the following:
+>
+> * Additional cleaning on shipState source data (replacing characters not matching with a-z, A-Z or 0-9 by '_' )
+> * The location Dimensions that were still missing in the main branch
+> * Country data loaded from web (JSON), processed with Pandas into a seed
+> * cityState dimension and explanation at the bottom of this README.md of this choice
+> * Pivoted Mart model that counts amount of sales by SKU and Year
+> * Staging model that joins orders and related tables
+>
+> No other relevant modifications were made in this MAIN branch after I had invited my future colleagues
 
 ## Installation
 
