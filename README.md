@@ -19,7 +19,8 @@ The project has proven to be quite some work and challenging at times, but it ha
 > * Pivoted Mart model that counts amount of sales by SKU and Year
 > * Staging model that joins orders and related tables
 >
-> No other relevant modifications were made in this MAIN branch after I had invited my future colleagues
+> No other relevant modifications were made in this MAIN branch after I had invited my future colleagues ;)
+
 
 ## Installation
 
@@ -210,6 +211,8 @@ Based on evaluating constant fields per field, I have identified the following F
 
 ### Date [Dimension]
 
+In order to prevent the date dimension from gaps I used/Googled a macro to generate a series and modified it to fit my use case.
+
 ### SKU [Dimension]
 
 * sku
@@ -224,7 +227,6 @@ Based on evaluating constant fields per field, I have identified the following F
 >
 > Since locations can have different names, it is relevant to create separate dimensions for Country, State and City. This way synonyms can be stored across the dimensions to enforce uniques with respect to similar locations.
 >
-> Due to time limitations, I am not able to finish these models.shipCity
 
 #### CityState [Dimension]
 
