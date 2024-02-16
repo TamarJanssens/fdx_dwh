@@ -21,6 +21,7 @@ The project has proven to be quite some work and challenging at times, but it ha
 >
 > No other relevant modifications were made in this MAIN branch after I had invited my future colleagues ;)
 
+
 ## Installation
 
 ### Activate Virtual Environment
@@ -97,6 +98,14 @@ Install packages
 
 ```bash
  dbt deps
+```
+
+## Load Countries from web
+
+```
+cd src
+python load_countries.py
+dbt seed
 ```
 
 ## Data Cleaning and Preliminary Analysis
@@ -181,6 +190,9 @@ Based on evaluating constant fields per field, I have identified the following F
 * fulfilment
 * salesChannel
 * shipServiceLevel
+* country_id
+* cityState_id
+* shipPostalCode
 
 ### OrderItems [FACT}
 
@@ -209,18 +221,29 @@ In order to prevent the date dimension from gaps I used/Googled a macro to gener
 * size
 * asin
 
-### Location [Dimension]
+### Location related Dimensions
 
 > [!NOTE]
 >
 > Since locations can have different names, it is relevant to create separate dimensions for Country, State and City. This way synonyms can be stored across the dimensions to enforce uniques with respect to similar locations.
 >
-> Due to time limitations, I am not able to finish these models, but i've showed similar skills in other models.
->
->
-> [UPDATE: DEV branch contains these models]
 
-* shipCity
-* shipState
-* shipPostalCode
-* shipCountry
+#### CityState [Dimension]
+
+Since Citynames can occur in multiple states within a country, I choose to create a CityState dimension with unique City and State combinations
+
+#### Country [Dimension]
+
+Country data is obtained from the internet from [datahub.io]() and retrieved with the script in `` src/load_countries.py``
+
+link:
+
+[https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json]()
+
+### Orders By Product [MART]
+
+I've added a Mart model that computes the amount of orders by SKU and Year and pivots the results such each year has its own column. The data is filtered for country IN now.
+
+model `` mrt/pivot_orders_by_sku_year_IN``
+
+To assist this model and keep it readable, a view model is created in ``stg/orders_joined.sql``. This model contains joins with all tables, such it can be re-used for other Mart models.
