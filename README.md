@@ -215,8 +215,10 @@ In order to prevent the date dimension from gaps I used/Googled a macro to gener
 >
 > Since locations can have different names, it is relevant to create separate dimensions for Country, State and City. This way synonyms can be stored across the dimensions to enforce uniques with respect to similar locations.
 >
-> Due to time limitations, I am not able to finish these models, but i've showed similar skills in other models
-> [UPDATE: DEV branch contains these models
+> Due to time limitations, I am not able to finish these models, but i've showed similar skills in other models.
+>
+>
+> [UPDATE: DEV branch contains these models]
 
 * shipCity
 * shipState
